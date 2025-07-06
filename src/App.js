@@ -3,28 +3,66 @@ import './App.css';
 // import { useState } from 'react';
 
 function App() {
- 
- 
+  // const age = 15;
+  // const isGreen=true
+//  List in react
+const users=[
+  {
+name:"Ak",
+age:"22"
+},
+{
+  name:"Av",
+  age:"22"
+  }
+]
+
   return (
+    
     <>
-      <Job name="Ak" age={21} email="ak@gmail.com" />
-      <Job name="Ara" age={21} email="ara@gmail.com" />
-      <Job name="AK" age={21} email="aK@gmail.com" />
+    {/* We study conditional rendering with ternary operators */}
+     {/* {
+    age > 18 ? <h1>Over age</h1> : <h1>under age</h1>
+  }
+  <h1 style={{color: isGreen? "green":"red" }}>This has color</h1>
+
+  {isGreen && <button>This is a button</button>}
+
+
+
+  
+  */}
+    
+
+
+
+
+   { users.map((user,key)=>{
+  return(
+<User name={user.name} age={user.age}/>
+
+  )
+})
+}
     </>
   );
 }
+
+
+const User = (props) => {
+  return (
+    <div>
+      {props.name}
+       {props.age}
+    </div>
+  );
+}
+
+
+
+
 
 export default App;
 
-
-const Job = (props) => {
-  return (
-    <>
-      <h1>{props.name}</h1>
-      <h1>{props.age}</h1>
-      <h1>{props.email}</h1>
-    </>
-  );
-}
 
 
