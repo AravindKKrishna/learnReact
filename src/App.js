@@ -1,65 +1,30 @@
 
 import './App.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 function App() {
-  // const age = 15;
-  // const isGreen=true
-//  List in react
-const users=[
-  {
-name:"Ak",
-age:"22"
-},
-{
-  name:"Av",
-  age:"22"
-  }
-]
-
+// const[text,setText]=useState("")
+const [showtext, setShowText] = useState(false);
+// const changeText=(event)=>{
+//   setText(event.target.value)
+// }
+const changeText=()=>{
+  setShowText(!showtext)
+}
   return (
-    
     <>
-    {/* We study conditional rendering with ternary operators */}
-     {/* {
-    age > 18 ? <h1>Over age</h1> : <h1>under age</h1>
-  }
-  <h1 style={{color: isGreen? "green":"red" }}>This has color</h1>
+    {/* <input type="text" onChange={changeText} palceholder="name"/> */}
+    {/* {text} */}
 
-  {isGreen && <button>This is a button</button>}
+    {/* onclick state change */}
+<button onClick={changeText}>show/hide</button>
+{showtext&& <h1>Hi My name is AK</h1>}
 
-
-
-  
-  */}
-    
-
-
-
-
-   { users.map((user,key)=>{
-  return(
-<User name={user.name} age={user.age}/>
-
-  )
-})
-}
     </>
-  );
+  
+  )
+
 }
-
-
-const User = (props) => {
-  return (
-    <div>
-      {props.name}
-       {props.age}
-    </div>
-  );
-}
-
-
-
 
 
 export default App;
