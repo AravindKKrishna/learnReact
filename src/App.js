@@ -5,6 +5,7 @@ import { useState ,useEffect } from 'react';
 
 //if we use axios it will keep fetching data everytime when a component renders thus it become an infinite loop.
 // so to avoid that we use  useEffect and put the axios code in useEffect
+//  here we use useState to display data in the ui
 
 function App() {
   // //using fetch
