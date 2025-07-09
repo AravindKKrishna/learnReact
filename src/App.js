@@ -6,27 +6,27 @@ import { useState ,useEffect } from 'react';
 
 
 function App() {
-const [name,setName]=useState("")
-const [predictAge, setPredictAge] = useState({});
-const fetchData=()=>{
-Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-  setPredictAge(res.data);
-});
+const[excuse,setExcuse]=useState("")
+
+
+const Fetchexcuse=(excuse)=>{
+  Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).then(
+    (res) => {
+      setExcuse(res.data[0].excuse);
+    }
+  );
 }
+
 
 
 https: return (
   <>
-    <input
-      placeholder="Ex. Name"
-      onChange={(event) => {
-        setName(event.target.value);
-      }}
-    />
-    <button onClick={fetchData}>Predict Age</button>
-    <h1>Predicted Name: {predictAge?.name} </h1>
-    <h1>Predicted Age: {predictAge?.age} </h1>
-    <h1>Predicted Count: {predictAge?.count} </h1>
+    <h1>Generate an Excuse</h1>
+    <button onClick={()=>Fetchexcuse("party")}>Party</button>
+    <button onClick={()=>Fetchexcuse("family")}>Family</button>
+    <button onClick={()=>Fetchexcuse("office")}>office</button>
+
+   <p>{excuse}</p>
   </>
 );
 }
