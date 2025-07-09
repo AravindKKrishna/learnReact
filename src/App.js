@@ -18,7 +18,7 @@ Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
 https: return (
   <>
     <input
-      placeholder="Ex. Name"
+      placeholder=" Name to fetch data"
       onChange={(event) => {
         setName(event.target.value);
       }}
