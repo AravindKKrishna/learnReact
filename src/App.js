@@ -1,32 +1,36 @@
 
 import './App.css';
+import  {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 
 import Axios from "axios"
 import { useState ,useEffect } from 'react';
+import Home from './Pages/Home';
+import Menu from './Pages/Menu';
 
 
 function App() {
-const[excuse,setExcuse]=useState("")
-
-
-const Fetchexcuse=(excuse)=>{
-  Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).then(
-    (res) => {
-      setExcuse(res.data[0].excuse);
-    }
-  );
-}
 
 
 
 https: return (
   <>
-    <h1>Generate an Excuse</h1>
-    <button onClick={()=>Fetchexcuse("party")}>Party</button>
-    <button onClick={()=>Fetchexcuse("family")}>Family</button>
-    <button onClick={()=>Fetchexcuse("office")}>office</button>
+    <Router>
+      <div>
+        NAVBAR
+        {/* we can link the pages component to a name similar to <a></a> tag in html thus we can simply route in the body part */}
 
-   <p>{excuse}</p>
+        <Link to={"/home"}>Home</Link>
+        <Link to={"/menu"}>Menu</Link>
+      
+      </div>
+      <Routes>
+        {/* Here we create routes and link the componenet pages.This can only be accesed through changing the root in browser */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+      
+        <Route path="*" element={<h1>Page not found</h1>} />
+      </Routes>
+    </Router>
   </>
 );
 }
